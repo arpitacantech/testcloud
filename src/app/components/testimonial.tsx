@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 
 
 
+
 // --- Types ---
 interface Testimonial {
   title: string;
@@ -68,48 +69,52 @@ const thirdColumn = testimonials.slice(6, 9);
 const defaultImage = "/assets/images/trustpilot-star.svg";
 
 // --- Sub-Components ---
-const TestimonialsColumn = (props: {
+const TestimonialsColumn = ({
+  className,
+  testimonials,
+  duration = 15,
+}: {
   className?: string;
   testimonials: Testimonial[];
   duration?: number;
 }) => {
   return (
-    <div className={props.className}>
+    <div className={className}>
       <motion.ul
+        style={{
+          willChange: "transform",
+          transform: "translateZ(0)",
+        }}
         animate={{
-          translateY: "-50%",
+          y: ["0%", "-50%"],
         }}
         transition={{
-          duration: props.duration || 10,
+          duration,
           repeat: Infinity,
           ease: "linear",
-          repeatType: "loop",
         }}
-        className="flex flex-col gap-6 pb-6 bg-transparent transition-colors duration-300 list-none m-0 p-0"
+        className="flex flex-col gap-6 pb-6 list-none m-0 p-0"
       >
-        {[
-          ...new Array(2).fill(0).map((_, index) => (
-            <React.Fragment key={index}>
-              {props.testimonials.map(({ title, text, name }, i) => (
-                <motion.li
-                  key={`${index}-${i}`}
-                  aria-hidden={index === 1 ? "true" : "false"}
-                  tabIndex={index === 1 ? -1 : 0}
+        {[...Array(2)].map((_, index) => (
+          <React.Fragment key={index}>
+            {testimonials.map(({ title, text, name }, i) => (
+              <li
+                key={`${index}-${i}`}
+                aria-hidden={index === 1}
+                className="max-w-[420px] w-full"
+              >
+                {/* 🔥 Hover animation moved INSIDE */}
+                <motion.div
                   whileHover={{
                     scale: 1.03,
-                    y: -8,
-                    boxShadow:
-                      "0 25px 50px -12px rgba(0, 0, 0, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.05)",
-                    transition: { type: "spring", stiffness: 400, damping: 17 },
+                    y: -6,
                   }}
-                  whileFocus={{
-                    scale: 1.03,
-                    y: -8,
-                    boxShadow:
-                      "0 25px 50px -12px rgba(0, 0, 0, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.05)",
-                    transition: { type: "spring", stiffness: 400, damping: 17 },
+                  transition={{
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 25,
                   }}
-                  className="p-10 rounded-3xl border border-neutral-800 shadow-lg shadow-black/40 max-w-[420px] w-full bg-neutral-900 transition-all duration-300"
+                  className="p-10 rounded-3xl border border-neutral-800 bg-neutral-900 shadow-lg shadow-black/40"
                 >
                   <div className="flex flex-col h-full">
                     <h2 className="text-lg font-semibold text-white mb-3">
@@ -124,7 +129,6 @@ const TestimonialsColumn = (props: {
                       <span className="text-sm font-medium text-white">
                         {name}
                       </span>
-
                       <img
                         src={defaultImage}
                         alt="Rating"
@@ -132,15 +136,17 @@ const TestimonialsColumn = (props: {
                       />
                     </div>
                   </div>
-                </motion.li>
-              ))}
-            </React.Fragment>
-          )),
-        ]}
+                </motion.div>
+              </li>
+            ))}
+          </React.Fragment>
+        ))}
       </motion.ul>
     </div>
   );
 };
+
+
 
 const TestimonialsSection = () => {
   return (
