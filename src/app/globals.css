@@ -1,0 +1,517 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   GLOBAL DESIGN TOKENS
+========================================================= */
+@layer base {
+  :root {
+    /* Core colors */
+    --background: 0 0% 0%;
+    --foreground: 210 40% 98%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 0 0% 100%;
+    --primary-foreground: 222 47% 6%;
+
+    --secondary: 0 0% 8.81%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 0 0% 8.81%;
+    --muted-foreground: 215 20% 55%;
+
+    --accent: 187 100% 50%;
+    --accent-foreground: 222 47% 6%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 4% 16%;
+    --input: 222 47% 15%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+
+    /* Gradients & effects */
+    --gradient-primary: linear-gradient(135deg,hsl(0 0% 100% / 60%) 0%, hsl(0 0% 100% / 80%) 100%);
+    --gradient-text: linear-gradient(135deg,hsl(0 0% 100%) 0%, hsl(215 14% 34%) 100%);
+    --gradient-card: linear-gradient(340deg,hsl(0 0% 5.88%) 0%, hsl(0 0% 5.88% / 0%) 100%);
+
+    --shadow-glow: 0 0 40px hsl(217 91% 60% / 0.2);
+    --shadow-card: 0 4px 24px hsl(222 47% 4% / 0.5);
+    
+
+    /* Compute tokens */
+    --cmpt_background: 222 47% 6%;
+    --cmpt_foreground: 210 40% 98%;
+    --cmpt_card: 0 0% 10.24%;
+    --cmpt_border: 240 4% 16%;
+    --cmpt_primary: 0 0% 100%;
+    --cmpt_primary-foreground: 0 0% 0%;
+    --cmpt_shadow_card: 0 4px 24px hsl(222 47% 4% / 0.5);
+    --cmpt_gradient_text: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(215 14% 34%) 100%);
+    --cmpt_radius: 0.75rem;
+
+    /* Font sizes */
+    --cn_fz_14: 14px;
+    --cn_fz_16: 16px;
+    --cn_fz_18: 18px;
+    --cn_fz_21: 21px;
+    --cn_fz_26: 26px;
+    --cn_fz_36: 36px;
+    --cn_fz_44: 44px;
+    --cn_fz_52: 52px;
+    --cn_fz_64: 64px;
+    --cn_fz_68: 68px;
+    --cn_72_72: 72px;
+    --cn_fz_78: 78px;
+  }
+}
+
+/* =========================================================
+   BASE STYLES
+========================================================= */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html,
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-lexend), sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-sora);
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.3);
+    color: hsl(var(--foreground));
+  }
+}
+
+/* =========================================================
+   LEGACY / CUSTOM CLASSES (PRESERVED)
+========================================================= */
+.service-btn-color{
+  background-color: #09090b !important;
+}
+
+/* ---------- Application Cards ---------- */
+.cn-application-bx-one {
+  background: linear-gradient(142deg, #5e5e5e -10%, #0f0e0c 43%, #121212 65%);
+  border-radius: 14px;
+  padding: 1.6px;
+}
+
+.cn-application-bx-two {
+  background: linear-gradient(126deg, #5e5e5e -39%, #141414 5%, #050505 60%);
+  border-radius: 13px;
+  height: 100%;
+  padding: 32px 28px 54px;
+  position: relative;
+}
+
+.application-bg-tab {
+  background-color: #ffffff12;
+  box-shadow: inset 0 -2px 0.5px #0006, inset 0 1px 0.5px #ffffff29;
+}
+
+/* ---------- Boxes ---------- */
+.box1 {
+  background: linear-gradient(142deg, #5e5e5e -10%, #0f0e0c 43%, #121212 65%);
+  border-radius: 14px;
+  padding: 1.6px;
+}
+
+.box2 {
+  background: linear-gradient(126deg, #5e5e5e -39%, #141414 5%, #050505 60%);
+  border-radius: 13px;
+  padding: 32px 28px 54px;
+  display: flex;
+  gap: 24px;
+  position: relative;
+}
+
+/* ---------- Tabs ---------- */
+.database-tab {
+  color: #fff;
+  background-color: #ffffff12;
+  box-shadow: inset 0 -2px 0.5px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0.5px rgba(255, 255, 255, 0.16);
+}
+
+/* ---------- Feature / Icon ---------- */
+.viewBox2 {
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feature-box1 {
+  width: 88px;
+  height: 88px;
+  border-radius: 999px;
+  background-image: linear-gradient(
+    to top,
+    rgba(54, 58, 63, 0.03),
+    rgba(255, 255, 255, 0.03) 75%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* =========================================================
+   COMPONENTS
+========================================================= */
+@layer components {
+  .cc-h1{
+    @apply font-extrabold leading-tight md:leading-[3.5rem] lg:leading-[4rem] mb-8 motion-safe:animate-zoom-in;
+    
+    font-size: clamp(2rem, 6vw, 2.75rem); /* ~32px → 44px */
+
+    @media (min-width: 640px) {
+      font-size: clamp(2.5rem, 5vw, 3.25rem); /* ~40px → 52px */
+    }
+
+    @media (min-width: 1024px) {
+      font-size: var(--cn_fz_64); /* your design token */
+      line-height: 1.1;
+    }
+  }
+  h1 span {
+    @apply inline-block lg:inline bg-gradient-to-b from-white via-gray-300 to-gray-400 bg-clip-text text-transparent;
+    line-height: normal;
+    @media (max-width: 640px) {
+      display: unset !important;
+      padding-left: 8px;
+    }
+  }
+
+  .cc-h2 {
+    @apply text-white font-extrabold mx-auto mb-3;
+    font-size: clamp(1.50rem, 5vw, var(--cn_fz_36)); /* ~24px → 36px */
+  }
+
+  .cc-h3 {
+    @apply font-semibold text-white;
+    font-size: clamp(1.125rem, 3.5vw, var(--cn_fz_21)); /* ~18px → 21px */
+  }
+
+  .title-badges {
+    @apply inline-flex items-center gap-2 px-4 py-2 mb-1 uppercase tracking-wider rounded-full bg-cmpt_primary/10 border border-cmpt_primary/20 animate-fade-in;
+    font-size: clamp(0.75rem, 2.5vw, var(--cn_fz_14)); /* ~12px → 14px */
+  }
+
+  .subtitle {
+    @apply max-w-4xl mx-auto text-[#ffffffb3];
+    font-size: clamp(var(--cn_fz_14), 2.8vw, 1rem); /* ~14px → 18px */
+    line-height: 1.7;
+  }
+
+  .cc-p {
+    @apply text-gray-400;
+    font-size: clamp(var(--cn_fz_14), 2.5vw, var(--cn_fz_16)); /* ~14px → 16px */
+    letter-spacing: 0.3px;
+  }
+
+  .glass-card {
+    @apply backdrop-blur-xl border rounded-xl;
+    background-image: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  .price-value,
+  .price-text {
+    @apply bg-clip-text text-transparent text-2xl font-bold;
+    background-image: var(--gradient-text);
+  }
+
+  .filter-pill {
+    @apply px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition;
+  }
+
+  .filter-pill-active {
+    @apply bg-primary text-primary-foreground;
+    box-shadow: var(--shadow-glow);
+  }
+
+  .filter-pill-inactive {
+    @apply bg-secondary text-muted-foreground hover:text-foreground;
+  }
+
+  .animated-card{
+    @apply relative bg-[#111111] border border-[#1e1e1e] rounded-2xl p-8 text-center overflow-hidden;
+  }
+
+  .animated-card::before {
+    content: "";
+    position: absolute;
+    inset: -60%;
+    background: linear-gradient(0deg, transparent 30%, #292929, #ffffff, #ffffff, transparent 70%);
+    opacity: 1;
+    animation: animated-card-spin 8s linear infinite;
+  }
+
+  .animated-card::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    background: #050505;
+    border-radius: inherit;
+    z-index: 1;
+  }
+
+  .animated-card > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  .cc-btn{
+    @apply relative inline-flex items-center gap-3 cursor-pointer font-normal text-white whitespace-nowrap overflow-hidden border border-[#3d3d3d] transition-[background-color,box-shadow] duration-300;
+    padding: 0.75rem 1.5rem;
+    padding-left: 20px;
+    border-radius: 100px;
+    line-height: 1;
+    text-decoration: none;
+    background-color: var(--clr);
+  }
+
+  .button {
+    @apply relative inline-flex items-center gap-3 cursor-pointer font-normal text-white whitespace-nowrap overflow-hidden border border-[#3d3d3d] transition-[background-color,box-shadow] duration-300;
+    padding: 1.5rem 2.5rem;
+    border-radius: 16px;
+    line-height: 1;
+    text-decoration: none;
+    background-color: var(--clr);
+  }
+
+  .button::before {
+    content: "";
+    position: absolute;
+    inset: -60%;
+    background: linear-gradient(
+      0deg,
+      transparent 30%,
+      #292929,
+      #ffffff,
+      #ffffff,
+      transparent 70%
+    );
+    opacity: 1;
+    animation: button-spin 8s linear infinite;
+  }
+
+  .button::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    background: #050505;
+    border-radius: inherit;
+    z-index: 1;
+  }
+
+  .button > * {
+    position: relative;
+    z-index: 2;
+  }
+
+}
+
+/* =========================================================
+   UTILITIES & ANIMATIONS
+========================================================= */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.5s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes button-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animated-card-spin{
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes logo-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-logo-scroll {
+  animation: logo-scroll 25s linear infinite;
+}
+
+.button__icon-wrapper {
+  flex-shrink: 0;
+  width: 25px;
+  height: 25px;
+  position: relative;
+  color: #050505;
+  background-color: #fff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.cc-btn:hover {
+   background-color: #000;
+  box-shadow:
+    0 0 8px rgba(90, 90, 90, 0.6),
+    0 0 20px rgba(90, 90, 90, 0.4);
+}
+
+.cc-btn:hover .button__icon-wrapper {
+  color: #000;
+}
+
+.button__icon-svg--copy {
+  position: absolute;
+  transform: translate(-150%, 150%);
+}
+
+.cc-btn:hover .button__icon-svg:first-child {
+  transition: transform 0.3s ease-in-out;
+  transform: translate(150%, -150%);
+}
+
+.cc-btn:hover .button__icon-svg--copy {
+  transition: transform 0.3s ease-in-out 0.1s;
+  transform: translate(0);
+}
+.rotating-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.rotating-border::before {
+  content: "";
+  position: absolute;
+  inset: -60%;
+  background: linear-gradient(0deg, transparent 30%, #292929, #FFFFFF, transparent 70%);
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+  animation: rotating-border 8s linear infinite;
+}
+
+/* Inner border mask */
+.rotating-border::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: #050505;
+  border-radius: inherit;
+  z-index: 1;
+}
+
+.rotating-border > * {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes rotating-border {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+.scrollbar-dark::-webkit-scrollbar {
+  height: 6px;
+}
+
+.scrollbar-dark::-webkit-scrollbar-track {
+  background: #000;
+}
+
+.scrollbar-dark::-webkit-scrollbar-thumb {
+  background-color: #333;
+  border-radius: 10px;
+}
+
+.scrollbar-dark::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+.scrollbar-dark {
+  scrollbar-width: inherit;
+  scrollbar-color: #333 #000;
+}
