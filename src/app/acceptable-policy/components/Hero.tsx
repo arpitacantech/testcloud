@@ -4,9 +4,17 @@ import HorizonGlow from "../../components/HorizonGlow";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
-      <StarField />
-      <HorizonGlow />
+  <section
+      className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-cover bg-center"
+      style={{
+        backgroundImage: "url('/assets/images/cta/cta-img.jpg')",
+      }}
+    >
+      {/* Optional dark overlay */}
+      <div className="absolute inset-0 bg-black/80 z-0" />
+
+      {/* <StarField />
+      <HorizonGlow /> */}
       
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
