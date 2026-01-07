@@ -11,7 +11,7 @@ const PrivacyHero = () => {
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 animate-fade-in-up glow-text" style={{ ["--delay" as string]: "0.2s" }}>Privacy Policy</h1>
-        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 animate-fade-in-up" style={{ ["--delay" as string]: "0.4s" }}>Affordable Cloud Solutions for Startups and Enterprises</p>
+        <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-4 animate-fade-in-up" style={{ ["--delay" as string]: "0.4s" }}>Affordable Cloud Solutions for Startups and Enterprises</p>
       </div>
       
       {/* Gradient overlay at bottom */}

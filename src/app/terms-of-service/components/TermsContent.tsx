@@ -91,7 +91,7 @@ const TermsContent = () => {
 
             {/* Paragraphs */}
             {section.paragraphs && (
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <div className="space-y-4 text-gray-400 leading-relaxed">
                 {section.paragraphs.map((text, i) => (
                   <p key={i}>{text}</p>
                 ))}
@@ -108,7 +108,7 @@ const TermsContent = () => {
                     </h3>
 
                     {sub.intro && (
-                      <p className="mt-3 text-muted-foreground">
+                      <p className="mt-3 text-gray-400">
                         {sub.intro}
                       </p>
                     )}
@@ -118,7 +118,7 @@ const TermsContent = () => {
                         {sub.points.map((point, j) => (
                           <li key={j} className="flex items-start gap-3">
                             <span className="mt-1 h-2 w-2 rounded-full bg-primary" />
-                            <span className="text-muted-foreground">
+                            <span className="text-gray-400">
                               {point}
                             </span>
                           </li>
