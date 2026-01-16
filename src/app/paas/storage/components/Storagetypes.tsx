@@ -66,7 +66,7 @@ export default function TwoCardSection() {
     <section className="relative w-full py-12 md:py-14 lg:py-16">
       {/* Section Intro */}
       <motion.div
-        className="max-w-6xl mx-auto text-center mb-16"
+        className="max-w-6xl mx-auto text-center mb-16 px-4 sm:px-6 lg:px-0"
         variants={container}
         initial="hidden"
         whileInView="show"

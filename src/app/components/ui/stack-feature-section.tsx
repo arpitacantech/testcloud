@@ -41,7 +41,7 @@ export default function FeatureSection() {
   const iconsPerOrbit = Math.ceil(iconConfigs.length / orbitCount);
 
   return (
-    <section className="relative max-w-7xl mx-auto my-32 pl-10 flex items-center justify-between h-[30rem] border border-gray-600 dark:border-gray-700 bg-black  overflow-hidden rounded-3xl">
+    <section className="relative max-w-7xl mx-auto my-16 md:my-20 lg:my-24 pl-10 flex items-center justify-between h-[30rem] border border-gray-600 dark:border-gray-700 bg-black  overflow-hidden rounded-3xl">
         
       {/* Left side: Heading and Text */}
       <div className="w-1/2 z-10">

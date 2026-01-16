@@ -45,9 +45,11 @@ export const ServicesSection = () => {
          
 
         {/* Content Grid */}
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
+       <div className="flex flex-col xl:flex-row gap-12 xl:gap-16 justify-center">
+
           {/* Service Cards */}
-          <div className="w-full lg:w-8/12">
+          <div className="w-full xl:w-8/12 mx-auto">
+
             <div className="space-y-6">
               {services.map((service, index) => (
                 <ServiceCard
@@ -61,7 +63,8 @@ export const ServicesSection = () => {
           </div>
 
           {/* Sticky Image */}
-          <div className="hidden lg:block lg:w-4/12">
+          <div className="hidden xl:block xl:w-4/12">
+
             <div className="sticky top-24 border border-solid border-[1px] border-[#ffffff29] rounded-xl">
               <StickyImage />
             </div>

@@ -20,7 +20,7 @@ export default function KeyFeaturesSection() {
 
         {/* ROW 1 */}
         <motion.div
-          className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-3"
+          className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-3 px-4 sm:px-6 lg:px-8"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ staggerChildren: 0.15 }}
@@ -72,7 +72,7 @@ export default function KeyFeaturesSection() {
         </motion.div>
         
         <motion.div
-          className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-3"
+          className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-3 px-4 sm:px-6 lg:px-8"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ staggerChildren: 0.15 }}
@@ -124,7 +124,7 @@ export default function KeyFeaturesSection() {
         </motion.div>
 
         <motion.div
-          className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-3"
+          className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-3 px-4 sm:px-6 lg:px-8"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ staggerChildren: 0.15 }}

@@ -75,13 +75,13 @@ const ComparisonSection: React.FC<ComparisonSectionProps> = ({
   return (
     <section className="py-20 bg-black">
       <motion.div
-        className="max-w-7xl mx-auto text-center"
+        className="max-w-7xl mx-auto text-center px-[clamp(1rem,5vw,2.5rem)]"
         variants={container}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.3 }}>
         <motion.p
-          className="inline-block border border-gray-300 text-gray-300 uppercase text-sm px-3 py-1 rounded-full mb-3 tracking-wide"
+          className="title-badges" 
           variants={fadeUp}>
           comparison
         </motion.p>

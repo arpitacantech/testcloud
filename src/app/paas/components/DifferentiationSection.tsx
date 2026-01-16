@@ -20,7 +20,7 @@ export default function DifferentiationSection() {
   };
 
   return (
-    <section className="w-full bg-black text-white py-32 relative">
+    <section className="w-full bg-black text-white py-16 md:py-20 lg:py-25 relative">
       {/* Centered Small Badge at the Top */}
       <motion.div
         className="w-full flex justify-center mb-16"

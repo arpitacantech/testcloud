@@ -35,14 +35,14 @@ function Feature2() {
 
         <div className="flex flex-col items-center gap-12">
 
-          <div className="max-w-6xl mx-auto text-center">
+          <div className="max-w-6xl mx-auto text-center  px-4 sm:px-6 lg:px-0">
             {/* <p className="title-badges">Benefits</p> */}
             <h2 className="cc-h2">
               What You Get With Cantech Cloud Compute
             </h2>
           </div>
 
-          <div className="w-full max-w-6xl mx-auto">
+          <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-0">
   <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
     {featureContent.items.map((item, idx) => (
       <div

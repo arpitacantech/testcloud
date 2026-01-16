@@ -34,7 +34,7 @@ export default function Feature1() {
     <section className="py-12 md:py-14 lg:py-16 overflow-hidden">
       <div className="md:px-8 text-center">
 
-       <div className="max-w-6xl mx-auto text-center mb-16">
+       <div className="max-w-6xl mx-auto text-center mb-16  px-4 sm:px-6 lg:px-0">
         <p className="title-badges">
           Benefits
         </p>

@@ -236,7 +236,7 @@ export default function ProductTabs() {
 
     {/* Tabs */}
     <motion.div
-      className="flex gap-2 mb-8 justify-center"
+      className="flex gap-2 mb-8 justify-center px-4 sm:px-0"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.1 }}
@@ -266,7 +266,7 @@ export default function ProductTabs() {
     <AnimatePresence mode="wait">
       <motion.div
         key={tab}
-        className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+        className="mt-10 grid grid-cols-1 gap-8 px-4 sm:px-6 md:grid-cols-2 lg:grid-cols-3 lg:px-0"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}

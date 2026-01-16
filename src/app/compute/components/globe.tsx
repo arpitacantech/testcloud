@@ -23,7 +23,15 @@ export default function Featured_05() {
           </p>
         </div>
         <div className="relative h-[180px] w-full max-w-xl">
-          {mounted && <Globe className="absolute -bottom-20 -right-40 scale-150" />}
+          {mounted && <Globe  className={cn(
+        "absolute transition-all duration-500",
+        // Default desktop positioning
+        "absolute -bottom-20 -right-40 scale-150",
+        // Tablet
+        "md:-bottom-10 md:-right-10 md:scale-125",
+        // Mobile
+        "sm:top-0 sm:right-0 sm:scale-75 sm:translate-x-1/2 sm:-translate-y-1/2"
+      )} />}
         </div>
       </div>
     </section>

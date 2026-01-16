@@ -16,7 +16,7 @@ export default function ClientLogos({ transparent }: ClientLogosProps) {
 
   return (
     <div
-      className={`pt-14 pb-16 w-full flex flex-col items-center ${
+      className={`py-4 md:py-6 lg:py-8 w-full flex flex-col items-center ${
         transparent ? "" : "bg-gray-900"
       }`}
     >

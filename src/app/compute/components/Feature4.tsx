@@ -92,10 +92,10 @@ export default function Feature4() {
               visible: { opacity: 1, x: 0 },
             }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative md:col-span-2 lg:col-span-2"
+            className="relative md:col-span-2 lg:col-span-2 flex justify-center items-center"
           >
             <img
-              className="inset-0 w-full h-56 rounded shadow-lg lg:absolute lg:h-full"
+              className="w-full max-w-full h-auto rounded shadow-lg object-cover"
               src={sectionContent.image}
               alt="Use Cases of Cloud Solution | Cantech Cloud"
             />

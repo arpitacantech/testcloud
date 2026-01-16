@@ -92,7 +92,7 @@ export default function FeatureSection3() {
             className="relative md:col-span-2 lg:col-span-2"
           >
             <img
-              className="inset-0 object-cover object-bottom w-full h-56 rounded shadow-lg lg:absolute lg:h-full"
+              className="w-full rounded shadow-lg object-contain aspect-[4/3]"
               src="/assets/images/compute/kubernetes/flexible-compute-powerful-add-ons-for-kubernetes.webp"
               alt="Flexible Compute & Powerful Add-Ons for Kubernetes | Cantech Cloud"
             />
