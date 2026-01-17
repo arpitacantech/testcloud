@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 export default function FeatureSection3() {
   return (
     <section className="py-8 md:py-10 lg:py-12">
-
       {/* HEADING */}
       <motion.div
         initial="hidden"
@@ -38,7 +37,8 @@ export default function FeatureSection3() {
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.05 }}
           className="subtitle"
         >
-         Discover why leading companies across various industries trust Cantech Cloud to solve their modern challenges.
+          Discover why leading companies across various industries trust Cantech
+          Cloud to solve their modern challenges.
         </motion.p>
       </motion.div>
 
@@ -54,7 +54,6 @@ export default function FeatureSection3() {
         className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
       >
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5">
-
           {/* LEFT FEATURES */}
           <div className="grid gap-6 md:grid-cols-2 md:col-span-2 lg:col-span-3">
             {[
@@ -76,7 +75,9 @@ export default function FeatureSection3() {
                   {title}
                 </p>
                 <p className="text-sm md:text-base text-neutral-300 max-w-prose">
-                  Kubernetes clusters can automatically scale the nodes and workloads to manage surge in traffic while seamlessly maintaining performance.
+                  Kubernetes clusters can automatically scale the nodes and
+                  workloads to manage surge in traffic while seamlessly
+                  maintaining performance.
                 </p>
               </motion.div>
             ))}
@@ -85,8 +86,8 @@ export default function FeatureSection3() {
           {/* RIGHT IMAGE */}
           <motion.div
             variants={{
-              hidden: { opacity: 0, x: 40 },
-              visible: { opacity: 1, x: 0 },
+              hidden: { opacity: 0 },
+              visible: { opacity: 1 },
             }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative md:col-span-2 lg:col-span-2"
@@ -97,9 +98,8 @@ export default function FeatureSection3() {
               alt="Flexible Compute & Powerful Add-Ons for Kubernetes | Cantech Cloud"
             />
           </motion.div>
-
         </div>
       </motion.div>
-    </section> 
-  )
+    </section>
+  );
 }
