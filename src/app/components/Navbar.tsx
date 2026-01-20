@@ -19,6 +19,14 @@ export default function Navbar() {
   const [paasTab, setPaasTab] = useState("application");
   const [computeTab, setComputeTab] = useState("kubernetes");
   const [pricingTab, setPricingTab] = useState<"paas" | "compute">("paas");
+  const [mobileOpen, setMobileOpen] = useState(false); // hamburger open/close
+const [mobileMenu, setMobileMenu] = useState<
+  "paas" | "compute" | "pricing" | null
+>(null); // which main menu is open
+const [mobilePaasTab, setMobilePaasTab] = useState<
+  "application" | "database" | "storage"
+>("application");
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -406,11 +414,12 @@ export default function Navbar() {
 
           {/* MOBILE TOGGLE */}
           <button
-            className="lg:hidden text-white ml-auto"
-            onClick={() => setOpen(true)}
-          >
-            <Menu size={26} />
-          </button>
+  className="lg:hidden text-white ml-auto"
+  onClick={() => setMobileOpen(true)}
+>
+  <Menu size={26} />
+</button>
+
         </div>
       </nav>
 
@@ -424,41 +433,134 @@ export default function Navbar() {
 
       {/* MOBILE SIDEBAR */}
       <aside
-        className={`fixed top-0 right-0 z-50 h-full w-[85%] max-w-sm bg-black/80 backdrop-blur-xl border-l border-white/20
-        transform transition-transform ${open ? "translate-x-0" : "translate-x-full"}`}
+  className={`fixed top-0 right-0 z-50 h-full w-[90%] md:max-w-md
+  bg-black/90 backdrop-blur-xl border-l border-white/20
+  transform transition-transform duration-300
+  ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}
+>
+  {/* HEADER */}
+  <div className="flex items-center justify-between p-5 border-b border-white/10">
+    <span className="text-white font-semibold text-lg">Menu</span>
+    <button onClick={() => setMobileOpen(false)}>
+      <X className="text-white" />
+    </button>
+  </div>
+
+  {/* MENU ITEMS */}
+  <div className="p-5 space-y-4 text-white overflow-y-auto">
+    {/* PaaS */}
+    <div>
+      <button
+        onClick={() => setMobileMenu(mobileMenu === "paas" ? null : "paas")}
+        className="w-full flex justify-between items-center font-semibold text-white"
       >
-        <div className="flex items-center justify-between p-6 border-b border-white/10">
-          <span className="text-white font-semibold">Menu</span>
-          <button onClick={() => setOpen(false)}>
-            <X className="text-white" />
-          </button>
-        </div>
+        PaaS
+        <ChevronDown
+          className={`transition-transform ${
+            mobileMenu === "paas" ? "rotate-180" : ""
+          }`}
+        />
+      </button>
 
-        <div className="p-6 space-y-6 text-white">
-          <div>
-            <p className="text-white/70 mb-2">PaaS</p>
-            <div className="pl-4 space-y-2">
-              <a href="/paas">Overview</a>
-              <a href="/paas/application/php-hosting">PHP Hosting</a>
-              <a href="/paas/laravel-hosting">Laravel Hosting</a>
-              <a href="/paas/database">Database</a>
-              <a href="/paas/storage">Storage</a>
+      {mobileMenu === "paas" && (
+        <div className="mt-2 pl-4 space-y-2">
+          {/* PaaS Tabs */}
+          {["application", "database", "storage"].map((tab) => (
+            <div key={tab}>
+              <button
+                onClick={() =>
+                  setMobilePaasTab(tab as typeof mobilePaasTab)
+                }
+                className="w-full flex justify-between items-center px-2 py-1 text-sm text-white/80 hover:text-white"
+              >
+                {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                {tab === "application" && (
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform ${
+                      mobilePaasTab === "application" ? "rotate-180" : ""
+                    }`}
+                  />
+                )}
+              </button>
+
+              {/* Application Submenu */}
+              {tab === "application" && mobilePaasTab === "application" && (
+                <div className="pl-4 mt-1 space-y-1 text-white/70">
+                  <a href="/paas/application/php-hosting" className="block px-2 py-1 hover:text-white">
+                    PHP Hosting
+                  </a>
+                  <a href="/paas/application/laravel-hosting" className="block px-2 py-1 hover:text-white">
+                    Laravel Hosting
+                  </a>
+                </div>
+              )}
             </div>
-          </div>
-
-          <a href="/about">About</a>
-          <a href="/contact">Contact</a>
-          <a href="/blog">Blog</a>
-
-          <a
-            href="https://app.cantech.cloud/?signup=true"
-            target="_blank"
-            className="block text-center py-3 rounded-full bg-black/70 shadow-[0_0_12px_rgba(192,192,192,0.6)]"
-          >
-            Get Started →
-          </a>
+          ))}
         </div>
-      </aside>
+      )}
+    </div>
+
+    {/* Compute */}
+    <div>
+      <button
+        onClick={() => setMobileMenu(mobileMenu === "compute" ? null : "compute")}
+        className="w-full flex justify-between items-center font-semibold text-white"
+      >
+        Compute
+        <ChevronDown
+          className={`transition-transform ${
+            mobileMenu === "compute" ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+
+      {mobileMenu === "compute" && (
+        <div className="mt-2 pl-4 space-y-1 text-white/70">
+          <a href="/compute/kubernetes" className="block px-2 py-1 hover:text-white">Kubernetes</a>
+          <a href="/compute/storage" className="block px-2 py-1 hover:text-white">Storage</a>
+          <a href="/compute/network" className="block px-2 py-1 hover:text-white">Network</a>
+        </div>
+      )}
+    </div>
+
+    {/* Pricing */}
+    <div>
+      <button
+        onClick={() => setMobileMenu(mobileMenu === "pricing" ? null : "pricing")}
+        className="w-full flex justify-between items-center font-semibold text-white"
+      >
+        Pricing
+        <ChevronDown
+          className={`transition-transform ${
+            mobileMenu === "pricing" ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+
+      {mobileMenu === "pricing" && (
+        <div className="mt-2 pl-4 space-y-1 text-white/70">
+          <a href="/paas/pricing" className="block px-2 py-1 hover:text-white">PaaS Pricing</a>
+          <a href="/compute/pricing" className="block px-2 py-1 hover:text-white">Compute Pricing</a>
+        </div>
+      )}
+    </div>
+
+    {/* Simple links */}
+    <a href="/about" className="block px-2 py-1 hover:text-white">About</a>
+    <a href="/contact-us" className="block px-2 py-1 hover:text-white">Contact</a>
+    <a href="/blog" className="block px-2 py-1 hover:text-white">Blog</a>
+
+    {/* CTA */}
+    <a
+      href="https://app.cantech.cloud/?signup=true"
+      target="_blank"
+      className="block mt-4 py-3 text-center rounded-full bg-white text-black font-semibold"
+    >
+      Get Started →
+    </a>
+  </div>
+</aside>
+
     </>
   );
 }
