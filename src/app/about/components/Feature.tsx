@@ -35,7 +35,7 @@ const cards = [
 
 export default function Feature() {
   return (
-    <section className="py-14 md:py-16 lg:py-20">
+    <section className="py-14 md:py-12 lg:py-8">
       <div className="md:px-8 text-center">
 
        <div className="max-w-6xl mx-auto text-center mb-16">
