@@ -29,7 +29,8 @@ export const HeroAboutEffect = ({
   className?: string;
 }) => {
   return (
-    <div className={cn("sticky top-80", className)}>
+    <div className={cn("sticky top-44 md:top-80", className)}>
+
       <h1 className="cc-h1 text-center">
         <span>{title || "A Reliable Infrastructure"}</span>
       </h1>
@@ -160,9 +161,10 @@ export function HeroAbout() {
   const buttonY = useTransform(scrollYProgress, [0.1, 0.35], [40, 0]);
 
   return (
-    <div ref={ref} className="relative w-full h-screen overflow-hidden bg-black">
+    <div ref={ref} className="relative w-full  min-h-[60dvh] md:min-h-[100dvh] overflow-hidden bg-black">
       {/* Sticky animation layer */}
-      <div className="sticky top-0 w-full h-screen">
+      <div className="sticky top-0 w-full min-h-[60dvh] md:min-h-[100dvh]">
+
         <HeroAboutEffect
           pathLengths={[
             pathLengthFirst,
