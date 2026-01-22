@@ -561,47 +561,46 @@ export default function Navbar() {
 
             {/* ================= COMPUTE ================= */}
             <li className="relative group">
-  <button className="flex items-center gap-1 hover:text-white font-sora">
-    Compute
-    <ChevronDown className="w-4 h-4 transition group-hover:rotate-180" />
-  </button>
+              <button className="flex items-center gap-1 hover:text-white font-sora">
+                Compute
+                <ChevronDown className="w-4 h-4 transition group-hover:rotate-180" />
+              </button>
 
-  {/* COMPUTE MEGA MENU */}
-  <div
-    className="absolute top-full left-1/2 -translate-x-1/2 mt-6 w-[860px]
+              {/* COMPUTE MEGA MENU */}
+              <div
+                className="absolute top-full left-1/2 -translate-x-1/2 mt-6 w-[860px]
       opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all"
-  >
-    <div className="bg-black border border-white/15 rounded-2xl shadow-xl p-6 grid grid-cols-4 gap-5">
+              >
+                <div className="bg-black border border-white/15 rounded-2xl shadow-xl p-6 grid grid-cols-4 gap-5">
+                  {/* ================= COMPUTE PLATFORM ================= */}
+                  <a
+                    href="/compute"
+                    className="rounded-xl border border-white/30 p-4 hover:bg-white/5 transition group"
+                  >
+                    <div className="flex items-center gap-3 mb-2">
+                      <Cpu className="w-5 h-5 text-white/80 group-hover:text-white" />
+                      <p className="text-sm font-semibold text-white whitespace-nowrap">
+                        Compute Platform
+                      </p>
+                    </div>
+                    <p className="text-xs text-white/60">
+                      Core compute services
+                    </p>
+                  </a>
 
-      {/* ================= COMPUTE PLATFORM ================= */}
-      <a
-        href="/compute"
-        className="rounded-xl border border-white/30 p-4 hover:bg-white/5 transition group"
-      >
-        <div className="flex items-center gap-3 mb-2">
-          <Cpu className="w-5 h-5 text-white/80 group-hover:text-white" />
-          <p className="text-sm font-semibold text-white whitespace-nowrap">
-            Compute Platform
-          </p>
-        </div>
-        <p className="text-xs text-white/60">
-           Core compute services
-        </p>
-      </a>
+                  {/* ================= KUBERNETES ================= */}
+                  <div className="space-y-3">
+                    <a
+                      href="/compute/kubernetes"
+                      className="flex items-center gap-3 rounded-xl border border-white/30 p-3 hover:bg-white/5 transition group"
+                    >
+                      <Layers className="w-5 h-5 text-white/80 group-hover:text-white" />
+                      <span className="text-sm font-semibold text-white">
+                        Kubernetes
+                      </span>
+                    </a>
 
-      {/* ================= KUBERNETES ================= */}
-      <div className="space-y-3">
-        <a
-          href="/compute/kubernetes"
-          className="flex items-center gap-3 rounded-xl border border-white/30 p-3 hover:bg-white/5 transition group"
-        >
-          <Layers className="w-5 h-5 text-white/80 group-hover:text-white" />
-          <span className="text-sm font-semibold text-white">
-            Kubernetes
-          </span>
-        </a>
-
-        {/* <div className="pl-9 space-y-2">
+                    {/* <div className="pl-9 space-y-2">
           <a
             href="/compute/kubernetes/managed"
             className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition"
@@ -618,21 +617,21 @@ export default function Navbar() {
             Node Pools
           </a>
         </div> */}
-      </div>
+                  </div>
 
-      {/* ================= STORAGE ================= */}
-      <div className="space-y-3">
-        <a
-          href="/compute/storage"
-          className="flex items-center gap-3 rounded-xl border border-white/30 p-3 hover:bg-white/5 transition group"
-        >
-          <Box className="w-5 h-5 text-white/80 group-hover:text-white" />
-          <span className="text-sm font-semibold text-white">
-            Storage
-          </span>
-        </a>
+                  {/* ================= STORAGE ================= */}
+                  <div className="space-y-3">
+                    <a
+                      href="/compute/storage"
+                      className="flex items-center gap-3 rounded-xl border border-white/30 p-3 hover:bg-white/5 transition group"
+                    >
+                      <Box className="w-5 h-5 text-white/80 group-hover:text-white" />
+                      <span className="text-sm font-semibold text-white">
+                        Storage
+                      </span>
+                    </a>
 
-        {/* <div className="pl-9 space-y-2">
+                    {/* <div className="pl-9 space-y-2">
           <a
             href="/compute/storage/s3"
             className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition"
@@ -641,21 +640,21 @@ export default function Navbar() {
             S3 Storage
           </a>
         </div> */}
-      </div>
+                  </div>
 
-      {/* ================= NETWORK ================= */}
-      <div className="space-y-3">
-        <a
-          href="/compute/network"
-          className="flex items-center gap-3 rounded-xl border border-white/30 p-3 hover:bg-white/5 transition group"
-        >
-          <Server className="w-5 h-5 text-white/80 group-hover:text-white" />
-          <span className="text-sm font-semibold text-white">
-            Network
-          </span>
-        </a>
+                  {/* ================= NETWORK ================= */}
+                  <div className="space-y-3">
+                    <a
+                      href="/compute/network"
+                      className="flex items-center gap-3 rounded-xl border border-white/30 p-3 hover:bg-white/5 transition group"
+                    >
+                      <Server className="w-5 h-5 text-white/80 group-hover:text-white" />
+                      <span className="text-sm font-semibold text-white">
+                        Network
+                      </span>
+                    </a>
 
-        {/* <div className="pl-9 space-y-2">
+                    {/* <div className="pl-9 space-y-2">
           <a
             href="/compute/network/load-balancer"
             className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition"
@@ -664,51 +663,47 @@ export default function Navbar() {
             Load Balancer
           </a>
         </div> */}
-      </div>
-
-    </div>
-  </div>
-</li>
+                  </div>
+                </div>
+              </div>
+            </li>
 
             {/* ================= PRICING ================= */}
-<li className="relative group">
-  <button className="flex items-center gap-1 hover:text-white font-sora">
-    Pricing
-    <ChevronDown className="w-4 h-4 transition group-hover:rotate-180" />
-  </button>
+            <li className="relative group">
+              <button className="flex items-center gap-1 hover:text-white font-sora">
+                Pricing
+                <ChevronDown className="w-4 h-4 transition group-hover:rotate-180" />
+              </button>
 
-  <div
-    className="absolute top-full left-1/2 -translate-x-1/2 mt-6 w-56
-      opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all"
-  >
-    <div className="bg-black border border-white/15 rounded-xl shadow-xl p-4 space-y-2">
+              <div
+                className="absolute top-full left-1/2 -translate-x-1/2 mt-6 w-56
+                  opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all"
+              >
+                <div className="bg-black border border-white/15 rounded-xl shadow-xl p-4 space-y-2">
+                  {/* ================= PaaS Pricing ================= */}
+                  <a
+                    href="/paas/pricing"
+                    className="flex items-center gap-2 p-3 rounded-xl border border-white/30 hover:bg-white/5 transition group"
+                  >
+                    <DollarSign className="w-4 h-4 text-white/70 group-hover:text-white" />
+                    <span className="text-sm text-white/70 group-hover:text-white">
+                      PaaS Pricing
+                    </span>
+                  </a>
 
-      {/* ================= PaaS Pricing ================= */}
-      <a
-        href="/paas/pricing"
-        className="flex items-center gap-2 p-3 rounded-xl border border-white/30 hover:bg-white/5 transition group"
-      >
-        <DollarSign className="w-4 h-4 text-white/70 group-hover:text-white" />
-        <span className="text-sm text-white/70 group-hover:text-white">
-          PaaS Pricing
-        </span>
-      </a>
-
-      {/* ================= Compute Pricing ================= */}
-      <a
-        href="/compute/pricing"
-        className="flex items-center gap-2 p-3 rounded-xl border border-white/30 hover:bg-white/5 transition group"
-      >
-        <Cpu className="w-4 h-4 text-white/70 group-hover:text-white" />
-        <span className="text-sm text-white/70 group-hover:text-white">
-          Compute Pricing
-        </span>
-      </a>
-
-    </div>
-  </div>
-</li>
-
+                  {/* ================= Compute Pricing ================= */}
+                  <a
+                    href="/compute/pricing"
+                    className="flex items-center gap-2 p-3 rounded-xl border border-white/30 hover:bg-white/5 transition group"
+                  >
+                    <Cpu className="w-4 h-4 text-white/70 group-hover:text-white" />
+                    <span className="text-sm text-white/70 group-hover:text-white">
+                      Compute Pricing
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </li>
 
             <li>
               <a href="/about" className="hover:text-white font-sora">
