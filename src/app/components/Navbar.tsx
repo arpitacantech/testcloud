@@ -97,7 +97,7 @@ export default function Navbar() {
                       <span className="text-sm font-semibold font-sora text-white">
                         PaaS Platform
                       </span>
-                      <span className="text-[10px] text-white/60 font-sora">
+                      <span className="text-[11px] text-white/60 font-sora">
                         Explore all PaaS services
                       </span>
                     </div>
@@ -142,7 +142,7 @@ export default function Navbar() {
                               <span className="text-sm font-semibold font-sora text-white">
                                 Application Platform
                               </span>
-                              <span className="text-[10px] text-white/60 font-sora">
+                              <span className="text-[11px] text-white/60 font-sora">
                                 Deploy and manage applications
                               </span>
                             </div>
@@ -185,7 +185,7 @@ export default function Navbar() {
                               <span className="text-sm font-semibold font-sora text-white">
                                 Database Services
                               </span>
-                              <span className="text-[10px] text-white/60 font-sora">
+                              <span className="text-[11px] text-white/60 font-sora">
                                 Managed SQL & NoSQL databases
                               </span>
                             </div>
@@ -208,7 +208,7 @@ export default function Navbar() {
                               <span className="text-sm font-semibold font-sora text-white">
                                 Storage Services
                               </span>
-                              <span className="text-[10px] text-white/60 font-sora">
+                              <span className="text-[11px] text-white/60 font-sora">
                                 Secure object & file storage
                               </span>
                             </div>
