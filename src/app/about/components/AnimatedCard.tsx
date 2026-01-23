@@ -20,6 +20,7 @@ export default function AnimatedCard({
   imageSrc,
   imageAlt = "",
   reverse = false,
+
 }: AnimatedCardProps) {
   return (
     <section className="py-14">

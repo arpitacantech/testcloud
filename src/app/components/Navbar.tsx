@@ -20,13 +20,12 @@ export default function Navbar() {
   const [computeTab, setComputeTab] = useState("kubernetes");
   const [pricingTab, setPricingTab] = useState<"paas" | "compute">("paas");
   const [mobileOpen, setMobileOpen] = useState(false); // hamburger open/close
-const [mobileMenu, setMobileMenu] = useState<
-  "paas" | "compute" | "pricing" | null
->(null); // which main menu is open
-const [mobilePaasTab, setMobilePaasTab] = useState<
-  "application" | "database" | "storage"
->("application");
-
+  const [mobileMenu, setMobileMenu] = useState<
+    "paas" | "compute" | "pricing" | null
+  >(null); // which main menu is open
+  const [mobilePaasTab, setMobilePaasTab] = useState<
+    "application" | "database" | "storage"
+  >("application");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -75,6 +74,7 @@ const [mobilePaasTab, setMobilePaasTab] = useState<
 
           {/* DESKTOP MENU */}
           <ul className="hidden lg:flex flex-1 justify-center items-center space-x-6 text-white/80 pl-20">
+
             {/* ================= PaaS ================= */}
             <li className="relative group">
               <button className="flex items-center gap-1 hover:text-white font-sora">
@@ -83,30 +83,29 @@ const [mobilePaasTab, setMobilePaasTab] = useState<
               </button>
 
               {/* MEGA MENU */}
-              <div className="absolute top-full left-1/2 -translate-x-[40%] mt-5 w-[640px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div className="absolute top-full left-1/2 -translate-x-[50%] mt-5 w-[640px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 <div className="bg-black border border-white/15 rounded-2xl shadow-xl flex flex-col overflow-hidden">
-                  {/* HERO CARD ON TOP */}
+                  {/* HERO CARD */}
                   <a
                     href="/paas"
                     className="flex items-center gap-3 px-4 py-3 border-b border-white/20 cursor-pointer group transition-colors bg-white/5 rounded-t-2xl"
                   >
-                    <div className="w-12 h-12 flex items-center justify-center  bg-white/10 rounded-md group-hover:bg-white/20 flex-shrink-0">
-                      <Server className="w-6 h-6 text-white/80 group-hover:text-white" />
+                    <div className="w-12 h-12 flex items-center justify-center bg-white/10 rounded-md group-hover:bg-white/20 flex-shrink-0">
+                      <Layers className="w-6 h-6 text-white/80 group-hover:text-white" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-sm font-semibold font-sora text-white group-hover:text-white">
+                      <span className="text-sm font-semibold font-sora text-white">
                         PaaS Platform
                       </span>
-                      <span className="text-[10px] text-white/60 group-hover:text-white/70 font-sora">
+                      <span className="text-[10px] text-white/60 font-sora">
                         Explore all PaaS services
                       </span>
                     </div>
                   </a>
 
-                  {/* LEFT SIDEBAR WITH OTHER PaaS TABS */}
-                  <div className="flex flex-col">
-                    {/* TOP HORIZONTAL PaaS TABS */}
-                    <div className="flex gap-2 px-4 pt-4 border-b border-white/20">
+                  <div className="flex">
+                    {/* LEFT SIDEBAR */}
+                    <div className="w-48 p-4 border-r border-white/20 space-y-2">
                       {[
                         { id: "application", label: "Application" },
                         { id: "database", label: "Database" },
@@ -115,12 +114,12 @@ const [mobilePaasTab, setMobilePaasTab] = useState<
                         <button
                           key={item.id}
                           onMouseEnter={() => setPaasTab(item.id)}
-                          className={`px-4 py-2 rounded-t-lg font-sora text-sm transition
-        ${
-          paasTab === item.id
-            ? "bg-white/10 text-white border-b-2 border-white"
-            : "text-white/60 hover:text-white"
-        }`}
+                          className={`w-full text-left px-3 py-2 rounded-lg font-sora transition
+                ${
+                  paasTab === item.id
+                    ? "bg-white/10 text-white"
+                    : "text-white/60 hover:bg-white/5"
+                }`}
                         >
                           {item.label}
                         </button>
@@ -129,36 +128,35 @@ const [mobilePaasTab, setMobilePaasTab] = useState<
 
                     {/* RIGHT CONTENT */}
                     <div className="flex-1 p-5 text-white">
-                      {/* Application */}
+                      {/* APPLICATION */}
                       {paasTab === "application" && (
                         <div className="space-y-4">
                           <a
                             href="/paas/application"
-                            className="flex items-center gap-3 mb-2 cursor-pointer group transition-colors"
+                            className="flex items-start gap-3 mb-2 cursor-pointer group transition-colors"
                           >
-                            <div className="w-10 h-10 flex items-center justify-center  bg-white/10 rounded-md group-hover:bg-white/20 flex-shrink-0">
+                            <div className="w-10 h-10 flex items-center justify-center bg-white/10 rounded-md group-hover:bg-white/20 flex-shrink-0">
                               <Layers className="w-6 h-6 text-white/80 group-hover:text-white" />
                             </div>
                             <div className="flex flex-col">
-                              <span className="text-sm font-semibold font-sora text-white group-hover:text-white">
-                                Application Hosting
+                              <span className="text-sm font-semibold font-sora text-white">
+                                Application Platform
                               </span>
-                              <span className="text-[10px] text-white/60 group-hover:text-white/70 font-sora">
-                                Deploy apps anywhere, anytime
+                              <span className="text-[10px] text-white/60 font-sora">
+                                Deploy and manage applications
                               </span>
                             </div>
                           </a>
-
                           <div className="border-b border-white/20 mb-4"></div>
-
-                          <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+                          <div className="grid grid-cols-2 gap-3">
                             {applicationItems.map((item) => (
                               <a
                                 key={item.name}
                                 href={item.href}
-                                className="flex items-start gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition-colors group"
+                                className="flex items-start gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition group"
                               >
-                                <item.icon className="w-4 h-4 text-white/80 mt-0.5 flex-shrink-0" />
+                                <item.icon className="w-5 h-5 text-white/80 mt-1 flex-shrink-0" />
+
                                 <div className="flex flex-col">
                                   <span className="font-sora text-sm font-medium text-white">
                                     {item.name}
@@ -173,22 +171,22 @@ const [mobilePaasTab, setMobilePaasTab] = useState<
                         </div>
                       )}
 
-                      {/* Database */}
+                      {/* DATABASE */}
                       {paasTab === "database" && (
                         <div className="space-y-4">
                           <a
                             href="/paas/database"
-                            className="flex items-center gap-3 mb-2 cursor-pointer group transition-colors"
+                            className="flex items-start gap-3 mb-2 cursor-pointer group transition-colors"
                           >
                             <div className="w-10 h-10 flex items-center justify-center bg-white/10 rounded-md group-hover:bg-white/20 flex-shrink-0">
                               <Database className="w-6 h-6 text-white/80 group-hover:text-white" />
                             </div>
                             <div className="flex flex-col">
-                              <span className="text-sm font-semibold font-sora text-white group-hover:text-white">
-                                Database Hosting
+                              <span className="text-sm font-semibold font-sora text-white">
+                                Database Services
                               </span>
-                              <span className="text-[10px] text-white/60 group-hover:text-white/70 font-sora">
-                                Manage your data efficiently
+                              <span className="text-[10px] text-white/60 font-sora">
+                                Managed SQL & NoSQL databases
                               </span>
                             </div>
                           </a>
@@ -196,22 +194,22 @@ const [mobilePaasTab, setMobilePaasTab] = useState<
                         </div>
                       )}
 
-                      {/* Storage */}
+                      {/* STORAGE */}
                       {paasTab === "storage" && (
                         <div className="space-y-4">
                           <a
                             href="/paas/storage"
-                            className="flex items-center gap-3 mb-2 cursor-pointer group transition-colors"
+                            className="flex items-start gap-3 mb-2 cursor-pointer group transition-colors"
                           >
                             <div className="w-10 h-10 flex items-center justify-center bg-white/10 rounded-md group-hover:bg-white/20 flex-shrink-0">
                               <Box className="w-6 h-6 text-white/80 group-hover:text-white" />
                             </div>
                             <div className="flex flex-col">
-                              <span className="text-sm font-semibold font-sora text-white group-hover:text-white">
-                                Storage Hosting
+                              <span className="text-sm font-semibold font-sora text-white">
+                                Storage Services
                               </span>
-                              <span className="text-[10px] text-white/60 group-hover:text-white/70 font-sora">
-                                Secure cloud storage
+                              <span className="text-[10px] text-white/60 font-sora">
+                                Secure object & file storage
                               </span>
                             </div>
                           </a>
@@ -414,12 +412,11 @@ const [mobilePaasTab, setMobilePaasTab] = useState<
 
           {/* MOBILE TOGGLE */}
           <button
-  className="lg:hidden text-white ml-auto"
-  onClick={() => setMobileOpen(true)}
->
-  <Menu size={26} />
-</button>
-
+            className="lg:hidden text-white ml-auto"
+            onClick={() => setMobileOpen(true)}
+          >
+            <Menu size={26} />
+          </button>
         </div>
       </nav>
 
@@ -433,134 +430,177 @@ const [mobilePaasTab, setMobilePaasTab] = useState<
 
       {/* MOBILE SIDEBAR */}
       <aside
-  className={`fixed top-0 right-0 z-50 h-full w-[90%] md:max-w-md
+        className={`fixed top-0 right-0 z-50 h-full w-[90%] md:max-w-md
   bg-black/90 backdrop-blur-xl border-l border-white/20
   transform transition-transform duration-300
   ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}
->
-  {/* HEADER */}
-  <div className="flex items-center justify-between p-5 border-b border-white/10">
-    <span className="text-white font-semibold text-lg">Menu</span>
-    <button onClick={() => setMobileOpen(false)}>
-      <X className="text-white" />
-    </button>
-  </div>
-
-  {/* MENU ITEMS */}
-  <div className="p-5 space-y-4 text-white overflow-y-auto">
-    {/* PaaS */}
-    <div>
-      <button
-        onClick={() => setMobileMenu(mobileMenu === "paas" ? null : "paas")}
-        className="w-full flex justify-between items-center font-semibold text-white"
       >
-        PaaS
-        <ChevronDown
-          className={`transition-transform ${
-            mobileMenu === "paas" ? "rotate-180" : ""
-          }`}
-        />
-      </button>
-
-      {mobileMenu === "paas" && (
-        <div className="mt-2 pl-4 space-y-2">
-          {/* PaaS Tabs */}
-          {["application", "database", "storage"].map((tab) => (
-            <div key={tab}>
-              <button
-                onClick={() =>
-                  setMobilePaasTab(tab as typeof mobilePaasTab)
-                }
-                className="w-full flex justify-between items-center px-2 py-1 text-sm text-white/80 hover:text-white"
-              >
-                {tab.charAt(0).toUpperCase() + tab.slice(1)}
-                {tab === "application" && (
-                  <ChevronDown
-                    className={`w-4 h-4 transition-transform ${
-                      mobilePaasTab === "application" ? "rotate-180" : ""
-                    }`}
-                  />
-                )}
-              </button>
-
-              {/* Application Submenu */}
-              {tab === "application" && mobilePaasTab === "application" && (
-                <div className="pl-4 mt-1 space-y-1 text-white/70">
-                  <a href="/paas/application/php-hosting" className="block px-2 py-1 hover:text-white">
-                    PHP Hosting
-                  </a>
-                  <a href="/paas/application/laravel-hosting" className="block px-2 py-1 hover:text-white">
-                    Laravel Hosting
-                  </a>
-                </div>
-              )}
-            </div>
-          ))}
+        {/* HEADER */}
+        <div className="flex items-center justify-between p-5 border-b border-white/10">
+          <span className="text-white font-semibold text-lg">Menu</span>
+          <button onClick={() => setMobileOpen(false)}>
+            <X className="text-white" />
+          </button>
         </div>
-      )}
-    </div>
 
-    {/* Compute */}
-    <div>
-      <button
-        onClick={() => setMobileMenu(mobileMenu === "compute" ? null : "compute")}
-        className="w-full flex justify-between items-center font-semibold text-white"
-      >
-        Compute
-        <ChevronDown
-          className={`transition-transform ${
-            mobileMenu === "compute" ? "rotate-180" : ""
-          }`}
-        />
-      </button>
+        {/* MENU ITEMS */}
+        <div className="p-5 space-y-4 text-white overflow-y-auto">
+          {/* PaaS */}
+          <div>
+            <button
+              onClick={() =>
+                setMobileMenu(mobileMenu === "paas" ? null : "paas")
+              }
+              className="w-full flex justify-between items-center font-semibold text-white"
+            >
+              PaaS
+              <ChevronDown
+                className={`transition-transform ${
+                  mobileMenu === "paas" ? "rotate-180" : ""
+                }`}
+              />
+            </button>
 
-      {mobileMenu === "compute" && (
-        <div className="mt-2 pl-4 space-y-1 text-white/70">
-          <a href="/compute/kubernetes" className="block px-2 py-1 hover:text-white">Kubernetes</a>
-          <a href="/compute/storage" className="block px-2 py-1 hover:text-white">Storage</a>
-          <a href="/compute/network" className="block px-2 py-1 hover:text-white">Network</a>
+            {mobileMenu === "paas" && (
+              <div className="mt-2 pl-4 space-y-2">
+                {/* PaaS Tabs */}
+                {["application", "database", "storage"].map((tab) => (
+                  <div key={tab}>
+                    <button
+                      onClick={() =>
+                        setMobilePaasTab(tab as typeof mobilePaasTab)
+                      }
+                      className="w-full flex justify-between items-center px-2 py-1 text-sm text-white/80 hover:text-white"
+                    >
+                      {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                      {tab === "application" && (
+                        <ChevronDown
+                          className={`w-4 h-4 transition-transform ${
+                            mobilePaasTab === "application" ? "rotate-180" : ""
+                          }`}
+                        />
+                      )}
+                    </button>
+
+                    {/* Application Submenu */}
+                    {tab === "application" &&
+                      mobilePaasTab === "application" && (
+                        <div className="pl-4 mt-1 space-y-1 text-white/70">
+                          <a
+                            href="/paas/application/php-hosting"
+                            className="block px-2 py-1 hover:text-white"
+                          >
+                            PHP Hosting
+                          </a>
+                          <a
+                            href="/paas/application/laravel-hosting"
+                            className="block px-2 py-1 hover:text-white"
+                          >
+                            Laravel Hosting
+                          </a>
+                        </div>
+                      )}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Compute */}
+          <div>
+            <button
+              onClick={() =>
+                setMobileMenu(mobileMenu === "compute" ? null : "compute")
+              }
+              className="w-full flex justify-between items-center font-semibold text-white"
+            >
+              Compute
+              <ChevronDown
+                className={`transition-transform ${
+                  mobileMenu === "compute" ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+
+            {mobileMenu === "compute" && (
+              <div className="mt-2 pl-4 space-y-1 text-white/70">
+                <a
+                  href="/compute/kubernetes"
+                  className="block px-2 py-1 hover:text-white"
+                >
+                  Kubernetes
+                </a>
+                <a
+                  href="/compute/storage"
+                  className="block px-2 py-1 hover:text-white"
+                >
+                  Storage
+                </a>
+                <a
+                  href="/compute/network"
+                  className="block px-2 py-1 hover:text-white"
+                >
+                  Network
+                </a>
+              </div>
+            )}
+          </div>
+
+          {/* Pricing */}
+          <div>
+            <button
+              onClick={() =>
+                setMobileMenu(mobileMenu === "pricing" ? null : "pricing")
+              }
+              className="w-full flex justify-between items-center font-semibold text-white"
+            >
+              Pricing
+              <ChevronDown
+                className={`transition-transform ${
+                  mobileMenu === "pricing" ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+
+            {mobileMenu === "pricing" && (
+              <div className="mt-2 pl-4 space-y-1 text-white/70">
+                <a
+                  href="/paas/pricing"
+                  className="block px-2 py-1 hover:text-white"
+                >
+                  PaaS Pricing
+                </a>
+                <a
+                  href="/compute/pricing"
+                  className="block px-2 py-1 hover:text-white"
+                >
+                  Compute Pricing
+                </a>
+              </div>
+            )}
+          </div>
+
+          {/* Simple links */}
+          <a href="/about" className="block px-2 py-1 hover:text-white">
+            About
+          </a>
+          <a href="/contact-us" className="block px-2 py-1 hover:text-white">
+            Contact
+          </a>
+          <a href="/blog" className="block px-2 py-1 hover:text-white">
+            Blog
+          </a>
+
+          {/* CTA */}
+          <a
+            href="https://app.cantech.cloud/?signup=true"
+            target="_blank"
+            className="block mt-4 py-3 text-center rounded-full bg-white text-black font-semibold"
+          >
+            Get Started →
+          </a>
         </div>
-      )}
-    </div>
-
-    {/* Pricing */}
-    <div>
-      <button
-        onClick={() => setMobileMenu(mobileMenu === "pricing" ? null : "pricing")}
-        className="w-full flex justify-between items-center font-semibold text-white"
-      >
-        Pricing
-        <ChevronDown
-          className={`transition-transform ${
-            mobileMenu === "pricing" ? "rotate-180" : ""
-          }`}
-        />
-      </button>
-
-      {mobileMenu === "pricing" && (
-        <div className="mt-2 pl-4 space-y-1 text-white/70">
-          <a href="/paas/pricing" className="block px-2 py-1 hover:text-white">PaaS Pricing</a>
-          <a href="/compute/pricing" className="block px-2 py-1 hover:text-white">Compute Pricing</a>
-        </div>
-      )}
-    </div>
-
-    {/* Simple links */}
-    <a href="/about" className="block px-2 py-1 hover:text-white">About</a>
-    <a href="/contact-us" className="block px-2 py-1 hover:text-white">Contact</a>
-    <a href="/blog" className="block px-2 py-1 hover:text-white">Blog</a>
-
-    {/* CTA */}
-    <a
-      href="https://app.cantech.cloud/?signup=true"
-      target="_blank"
-      className="block mt-4 py-3 text-center rounded-full bg-white text-black font-semibold"
-    >
-      Get Started →
-    </a>
-  </div>
-</aside>
-
+      </aside>
     </>
   );
 }
