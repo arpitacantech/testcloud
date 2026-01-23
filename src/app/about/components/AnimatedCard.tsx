@@ -12,7 +12,6 @@ interface AnimatedCardProps {
   reverse?: boolean;
 }
 
-
 export default function AnimatedCard({
   title,
   description1,
@@ -97,28 +96,28 @@ export default function AnimatedCard({
               )}
             </motion.div>
 
-           {imageSrc && (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.6, ease: "easeOut" }}
-    className="flex-1 w-full mt-6 md:mt-0"
-  >
-    <img
-      src={imageSrc}
-      alt={imageAlt}
-      className={`w-full h-auto sm:max-h-[280px] md:max-h-[550px] lg:max-h-[450px]
+            {imageSrc && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="flex-1 w-full mt-6 md:mt-0"
+              >
+                <img
+                  src={imageSrc}
+                  alt={imageAlt}
+                  className={`w-full h-auto sm:max-h-[280px] md:max-h-[550px] lg:max-h-[450px]
         object-cover object-left-top
         border border-border bg-body
-        ${reverse
-          ? "md:mr-[22px] md:rounded-3xl md:rounded-b-none"
-          : "md:ml-[22px] md:rounded-3xl md:rounded-b-none"}`}
-    />
-  </motion.div>
-)}
-
-           
+        ${
+          reverse
+            ? "md:mr-[22px] md:rounded-3xl md:rounded-b-none"
+            : "md:ml-[22px] md:rounded-3xl md:rounded-b-none"
+        }`}
+                />
+              </motion.div>
+            )}
           </div>
         </motion.div>
       </div>
